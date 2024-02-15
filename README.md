@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Websocket WebRTC App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Details
 
-## Available Scripts
+### Brief description
 
-In the project directory, you can run:
+This is a [React](https://react.dev/) project bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app).
 
-### `npm start`
+A WebRTC and Web Sockets project, PeerJS utilizes WebRTC for peer-to-peer connections like voice & video calls, while Socket.IO utilizes web sockets for real-time communication between clients and servers like chatting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+demonstration of chatting features in Web Socket chatroom and voice & video call features in WebRTC chatroom. for testing, three users are created and connected to both the chatroom.
 
-### `npm test`
+### Technologies used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Dependencies
 
-### `npm run build`
+##### for client
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+typescript, react, react-dom, react-scripts, peerjs, socket.io-client, socket.io
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### for server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+cors, http, express, peer, socket.io
 
-### `npm run eject`
+#### Dev dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##### for client
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+tailwindcss, concurrently, @types/react, @types/react-dom, @types/node, @types/express, @types/peerjs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##### for server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+nodemon, concurrently, @types/express, @types/node, @types/react
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pre-requisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Node.js, NPM, code editor like VSCode.
 
-### Code Splitting
+### Install project dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+### Run development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### for client folder
 
-### Making a Progressive Web App
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Advanced Configuration
+#### for server folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm start
+```
 
-### Deployment
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![full screenshot](./assets/image2.png)
+![terminal](./assets/image.png)
+![websocket video](./assets/websocket.gif)
+![webrtc video](./assets/webrtc.gif)
