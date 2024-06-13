@@ -64,7 +64,10 @@ npm start
 
 ## Screenshots
 
-![full screenshot](./assets/image2.png)
-![terminal](./assets/image.png)
-![websocket video](./assets/websocket.gif)
-![webrtc video](./assets/webrtc.gif)
+![full screenshot](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/image2.png)
+
+![terminal](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/image.png)
+
+![websocket video](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/websocket.gif)
+
+![webrtc video](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/webrtc.gif)
