@@ -9,9 +9,10 @@ interface Message {
 
 interface ChatProps {
   userId: string;
+  userTag?: "technical" | "business"; // Add userTag as an optional prop
 }
 
-const Chat: React.FC<ChatProps> = ({ userId }) => {
+const Chat: React.FC<ChatProps> = ({ userId, userTag }) => {
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [typing, setTyping] = useState<string>("");

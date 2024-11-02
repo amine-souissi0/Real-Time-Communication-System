@@ -14,32 +14,47 @@ const io: SocketIoServer = new SocketIoServer(server, {
   },
 });
 
+interface User {
+  socketId: string;
+  userId: string;
+  userTag: "technical" | "business";
+}
+
 interface MessageData {
   userId: string;
   message: string;
   timestamp: string;
 }
 
+const waitingUsers: User[] = [];
+
 io.on("connection", (socket: Socket) => {
-  console.log("New client connected");
+  console.log("New client connected:", socket.id);
 
-  socket.on("connect", () => {
-    console.log("Socket connected successfully");
-    // Perform actions on successful connection
-  });
+  socket.on("login", ({ userId, userTag }: { userId: string; userTag: "technical" | "business" }) => {
+    console.log(`${userId} (${userTag}) logged in`);
 
-  socket.on("disconnect", (reason) => {
-    console.log("Socket disconnected:", reason);
-    // Handle disconnection, clear data, or retry connection
-  });
+    // Find a user with the opposite tag
+    const oppositeTag = userTag === "technical" ? "business" : "technical";
+    const matchIndex = waitingUsers.findIndex((user) => user.userTag === oppositeTag);
 
-  socket.on("error", (err) => {
-    console.error("Socket error:", err);
-    // Handle errors, display notifications, or attempt reconnection
+    if (matchIndex !== -1) {
+      // Found a match
+      const matchedUser = waitingUsers.splice(matchIndex, 1)[0];
+
+      // Notify both users of the match
+      io.to(socket.id).emit("match", { userId: matchedUser.userId, userTag: matchedUser.userTag });
+      io.to(matchedUser.socketId).emit("match", { userId, userTag });
+
+      console.log(`Matched ${userId} with ${matchedUser.userId}`);
+    } else {
+      // No match found; add to waiting list
+      waitingUsers.push({ socketId: socket.id, userId, userTag });
+    }
   });
 
   socket.on("sendMessage", (data: MessageData) => {
-    io.emit("message", data);
+    io.emit("message", data); // Broadcast message to all users
   });
 
   socket.on("typing", (userId: string) => {
@@ -48,6 +63,19 @@ io.on("connection", (socket: Socket) => {
 
   socket.on("stopTyping", (userId: string) => {
     socket.broadcast.emit("stopTyping", userId);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected:", socket.id);
+    // Remove disconnected user from waiting list
+    const index = waitingUsers.findIndex((user) => user.socketId === socket.id);
+    if (index !== -1) {
+      waitingUsers.splice(index, 1);
+    }
+  });
+
+  socket.on("error", (err) => {
+    console.error("Socket error:", err);
   });
 });
 

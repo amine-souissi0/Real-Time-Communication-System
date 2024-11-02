@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-const Chat = ({ userId }) => {
+const Chat = ({ userId, userTag }) => {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const [typing, setTyping] = useState("");

@@ -62,12 +62,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 npm start
 ```
 
-## Screenshots
 
-![full screenshot](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/image2.png)
-
-![terminal](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/image.png)
-
-![websocket video](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/websocket.gif)
-
-![webrtc video](https://raw.githubusercontent.com/usamyismy7/websocket-webrtc-app/master/assets/webrtc.gif)
